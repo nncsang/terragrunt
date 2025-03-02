@@ -41,8 +41,8 @@ jobs:
 
       - name: Terragrunt Init and Plan
         run: |
-          cd platforms/integration/dev
           terragrunt init
+          cd platforms/integration/dev
           terragrunt plan
         env:
           ARM_CLIENT_ID: 23965206-f2a6-4723-b674-62a647cb98a5
