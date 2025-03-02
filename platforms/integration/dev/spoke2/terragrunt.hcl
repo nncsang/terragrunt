@@ -8,6 +8,13 @@ terraform {
 
 dependency "rg" {
   config_path = "../resource-group"
+
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  
+  mock_outputs = {
+    name     = "gha-oidc-terragrunt"
+    location = "eastasia"
+  }
 }
 
 inputs = {

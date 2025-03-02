@@ -3,11 +3,18 @@ include {
 }
 
 terraform {
-  source = "${get_repo_root()}/modules/virtual-network"
+  source = "${get_repo_root()}/modules//virtual-network"
 }
 
 dependency "rg" {
   config_path = "../resource-group"
+
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+  
+  mock_outputs = {
+    name     = "gha-oidc-terragrunt"
+    location = "eastasia"
+  }
 }
 
 inputs = {
