@@ -50,6 +50,8 @@ provider "azurerm" {
     }
   }
 
+  use_oidc = true  
+
   # The Azure provider will automatically use these environment variables:
   # ARM_CLIENT_ID
   # ARM_CLIENT_SECRET
