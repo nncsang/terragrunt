@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "${get_repo_root()}/modules/virtual-network"
+  source = "${get_repo_root()}/modules//virtual-network"
 }
 
 dependency "rg" {
