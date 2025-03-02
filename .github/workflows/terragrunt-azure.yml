@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # environment: DEV
+    environment: DEV
     env:
       ARM_USE_OIDC: true
       
