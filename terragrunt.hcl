@@ -9,7 +9,7 @@ remote_state {
   config = {
     resource_group_name  = "rg-terraform-state"
     storage_account_name = "spldterraformstate"
-    container_name      = "tfstate"
+    container_name      = "state"
     key                = "${path_relative_to_include()}/terraform.tfstate"
     
     # Optional but recommended settings
