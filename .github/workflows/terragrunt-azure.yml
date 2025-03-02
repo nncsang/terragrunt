@@ -41,8 +41,9 @@ jobs:
 
       - name: Terragrunt Init and Plan
         run: |
+          cd platforms/integration/dev
           terragrunt init
-          terragrunt run-all plan
+          terragrunt plan
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
@@ -51,7 +52,8 @@ jobs:
       - name: Terragrunt Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          terragrunt run-all apply --terragrunt-non-interactive
+          cd platforms/integration/dev
+          terragrunt apply --terragrunt-non-interactive
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}      
