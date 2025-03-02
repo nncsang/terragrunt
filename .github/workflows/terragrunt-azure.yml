@@ -41,6 +41,7 @@ jobs:
 
       - name: Terragrunt Init and Plan
         run: |
+          cd platforms/integration/dev
           terragrunt run-all init
           terragrunt run-all plan
         env:
