@@ -34,10 +34,10 @@ jobs:
 
       - name: Debug 
         run: |
-          if [ -z "${{ secrets.AZURE_CLIENT_ID }}" ]; then
-            echo "AZURE_CLIENT_ID is empty"
+          if [ -z "${{ secrets.AZURE_TENANT_ID }}" ]; then
+            echo "AZURE_TENANT_ID is empty"
           else
-            echo "AZURE_CLIENT_ID is set"
+            echo "AZURE_TENANT_ID is set"
           fi
 
       - name: Azure Login with OIDC
