@@ -3,11 +3,11 @@ include {
 }
 
 terraform {
-  source = "${get_repo_root()}/modules/resource-group"
+  source = "${get_repo_root()}/modules//resource-group"
 }
 
 inputs = {
-  name     = "lz"
+  name     = "gha-oidc-terragrunt"
   location = "eastasia"
   tags = {
     environment = "dev"
