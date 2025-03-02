@@ -41,9 +41,8 @@ jobs:
 
       - name: Terragrunt Init and Plan
         run: |
-          cd environments/dev
           terragrunt run-all init
-          terragrunt run-all plan -out=tfplan
+          terragrunt run-all plan
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
