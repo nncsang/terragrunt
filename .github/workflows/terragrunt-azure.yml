@@ -43,7 +43,7 @@ jobs:
         run: |
           cd platforms/integration/dev
           terragrunt init
-          terragrunt plan
+          terragrunt run-all plan
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
@@ -53,7 +53,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           cd platforms/integration/dev
-          terragrunt apply --terragrunt-non-interactive
+          terragrunt run-all apply --terragrunt-non-interactive
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}      
