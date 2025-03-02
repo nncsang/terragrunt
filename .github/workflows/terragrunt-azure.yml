@@ -31,15 +31,7 @@ jobs:
           curl -Lo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.48.1/terragrunt_linux_amd64
           chmod +x terragrunt
           sudo mv terragrunt /usr/local/bin/
-
-      - name: Debug 
-        run: |
-          if [ -z "${{ secrets.AZURE_TENANT_ID }}" ]; then
-            echo "AZURE_TENANT_ID is empty"
-          else
-            echo "AZURE_TENANT_ID is set"
-          fi
-
+      
       - name: Azure Login with OIDC
         uses: azure/login@v2
         with:
@@ -50,7 +42,7 @@ jobs:
       - name: Terragrunt Init and Plan
         run: |
           terragrunt init
-          terragrunt plan
+          terragrunt run-all plan
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
@@ -59,7 +51,7 @@ jobs:
       - name: Terragrunt Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          terragrunt apply --terragrunt-non-interactive
+          terragrunt run-all apply --terragrunt-non-interactive
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}      
