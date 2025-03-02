@@ -7,7 +7,7 @@ terraform {
 }
 
 inputs = {
-  name     = "lz"
+  name     = "gha-oidc-terragrunt"
   location = "eastasia"
   tags = {
     environment = "dev"
