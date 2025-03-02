@@ -1,4 +1,4 @@
-ame: Terragrunt Deploy to Azure
+name: Terragrunt Deploy to Azure
 
 on:
   push:
